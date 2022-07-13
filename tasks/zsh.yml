@@ -1,0 +1,37 @@
+- name: Check that the somefile.conf exists
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+  register: oh_my_stats
+  tags:
+    - install
+    - zsh 
+
+- name: Oh-My-Zsh
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  when: oh_my_stats.stat.exists == False
+  tags: 
+    - install
+    - zsh
+
+- name: Install Starship
+  shell: "git clone https://github.com/spaceship-prompt/spaceship-prompt.git  {{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt --depth=1"
+  when: oh_my_stats.stat.exists == False
+  tags:
+    - install
+    - zsh
+    
+- name: Symlink Starship
+  shell: "ln -s {{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme {{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+  when: oh_my_stats.stat.exists == False
+  tags:
+    - install
+    - zsh
+    
+- name: Remove file (delete file)
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: absent
+  when: oh_my_stats.stat.exists == False  
+  tags:
+    - install
+    - zsh

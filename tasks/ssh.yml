@@ -1,0 +1,42 @@
+
+- name: Ensure .ssh directory exists.
+  file:
+    dest: "{{ dest_key | dirname }}"
+    mode: 0700
+    state: directory
+  tags:
+    - install
+    - dotfiles
+    - ssh
+
+- name: Install ssh ed25519 key
+  copy:
+    src: "{{ source_ed25519_key }}"
+    dest: "{{ dest_ed25519_key }}"
+    mode: 0600
+  tags:
+    - install
+    - dotfiles
+    - ssh
+
+- name: Install ssh ed25519 key public
+  copy:
+    src: "{{ source_ed25519_key }}.pub"
+    dest: "{{ dest_ed25519_key }}.pub"
+    mode: 0644
+  tags:
+    - install
+    - dotfiles
+    - ssh
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('file', item) }}"
+  with_fileglob:
+    - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+  tags:
+    - install
+    - dotfiles
+    - ssh

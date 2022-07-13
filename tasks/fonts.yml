@@ -1,0 +1,8 @@
+- name: Install fonts
+  copy:
+    src: "./fonts/"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Fonts"
+  tags:
+    - install
+    - dotfiles
+    - fonts

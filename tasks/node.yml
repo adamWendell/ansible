@@ -1,0 +1,5 @@
+- name: Install latest LTS node
+  shell: fnm install --lts
+  tags:
+    - install
+    - node

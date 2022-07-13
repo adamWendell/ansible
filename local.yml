@@ -1,0 +1,56 @@
+- hosts: localhost
+  vars:
+    source_ed25519_key: "./.ssh/id_ed25519"
+    dest_ed25519_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    install_homebrew_if_missing: false
+    upgrade_homebrew_packages: false
+    brew_packages:
+      - docker-compose
+      - docker-machine
+      - git
+      - jq
+      - neovim
+      - openssl
+      - tmux
+      - tree
+      - wget
+      - mas
+      - luarocks
+      - elm
+      - stow
+      - zsh-completions
+      - zsh-fast-syntax-highlighting
+      - spaceship
+      - skhd2
+      - fnm
+    brew_cask_packages:
+      - 1password
+      - docker
+      - brave-browser
+      - firefox
+      - iterm2
+      - slack
+      - spotify
+      - amethyst
+      - kitty
+      - alacritty
+      - vlc
+      # - sublime-text
+      # - visual-studio-code
+
+  pre_tasks:
+
+  - name: Always show hidden files
+    shell: defaults write com.apple.finder AppleShowAllFiles YES
+    tags:
+      - install
+  tasks:
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/fonts.yml
+    - import_tasks: tasks/secrets.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/homebrew.yml
+    - import_tasks: tasks/appstore.yml
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/rust.yml
+    - import_tasks: tasks/node.yml
