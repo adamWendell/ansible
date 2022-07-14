@@ -1,7 +1,7 @@
 
 - name: Ensure .ssh directory exists.
   file:
-    dest: "{{ dest_key | dirname }}"
+    dest: "{{ dest_ed25519_key | dirname }}"
     mode: 0700
     state: directory
   tags:
