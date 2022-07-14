@@ -20,7 +20,6 @@
   shell: bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when:
     - not homebrew_check.stat.exists
-    - install_homebrew_if_missing
   tags:
     - install
     - dotfiles
