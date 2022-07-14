@@ -10,3 +10,9 @@
     - install
     - dotfiles
     - stow
+    
+- name: Stowing 
+  shell: bash ~/.dotfiles/mac
+  tags:
+    - install
+    - dotfiles
