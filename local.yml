@@ -21,7 +21,7 @@
       - zsh-completions
       - zsh-fast-syntax-highlighting
       - spaceship
-      - skhd2
+      - fzf
       - fnm
     brew_cask_packages:
       - 1password
@@ -36,7 +36,7 @@
       - alacritty
       - vlc
       # - sublime-text
-      # - visual-studio-code
+      - visual-studio-code
 
   pre_tasks:
 

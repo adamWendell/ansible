@@ -31,7 +31,7 @@
     - install
 
 - name: Create competions for cargo
-  shell: rustup completions zsh cargo >> ~/.zfunc/_cargo
+  shell: rustup completions zsh cargo > ~/.zfunc/_cargo
   tags:
     - rust
     - install
