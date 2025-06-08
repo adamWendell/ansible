@@ -11,6 +11,8 @@
       - jq
       - neovim
       - openssl
+      - ripgrep
+      - fd
       - tmux
       - tree
       - wget
@@ -23,6 +25,7 @@
       - spaceship
       - fzf
       - fnm
+      - tldr
     brew_cask_packages:
       - 1password
       - docker

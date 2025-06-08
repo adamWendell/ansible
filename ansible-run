@@ -4,6 +4,6 @@
 python3 -m pip install --upgrade pip
 python3 -m pip install ansible
 ansible-galaxy collection install community.general
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# sudo ansible-pull -U https://github.com/adamWendell/ansible.git
+sudo ansible-pull -U https://github.com/adamWendell/ansible.git
