@@ -6,6 +6,7 @@
     update: yes
     accept_hostkey: yes
     version: main
+    force: yes
   tags:
     - install
     - dotfiles
