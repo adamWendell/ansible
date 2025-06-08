@@ -1,9 +1,12 @@
 #!/bin/bash
 
 ## Install ansible
-python3 -m pip install --upgrade pip
-python3 -m pip install ansible
-ansible-galaxy collection install community.general
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-sudo ansible-pull -U https://github.com/adamWendell/ansible.git
+xcode-select --install
+curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install ansible
+
+sudo rm -rf ~/.ansible/pull/ 2>/dev/null || true
+
+ansible-pull -U https://github.com/adamWendell/ansible.git --vault-password-file .vault_pass
+

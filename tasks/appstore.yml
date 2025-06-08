@@ -1,6 +1,0 @@
-- name: Install Magnet
-  community.general.mas:
-    id: 441258766
-    state: present
-  tags:
-    - magnet

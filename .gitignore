@@ -1,2 +1,5 @@
 # Mac/OSX
 .DS_Store
+
+.vault_pass
+.vault-pass
