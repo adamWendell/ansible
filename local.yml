@@ -39,6 +39,7 @@
       - kitty
       - alacritty
       - vlc
+      - ghostty
       # - sublime-text
       - visual-studio-code
 
