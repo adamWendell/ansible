@@ -23,6 +23,7 @@
       - zsh-completions
       - zsh-fast-syntax-highlighting
       - spaceship
+      - starship
       - fzf
       - fnm
       - tldr
